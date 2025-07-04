@@ -3,23 +3,33 @@ package br.com.desafio.dio.banco.domain;
 public class Conta extends Banco{
 
 
+    // gera de forma sequencial a implementação do numero
     private static  int NUMERODACONTA = 003;
+
+    // gera de forma sequencial a implementação da agencia
     private static  int AGENCIA = 4591 ;
     protected int agencia;
     protected int numero;
     protected double saldo;
+    protected Cliente cliente;
 
-    public Conta() {
+    // define que para utilizar uma conta tem que ter o cliente vinculado
+    public Conta(Cliente cliente) {
         this.agencia = AGENCIA++;
         this.numero = NUMERODACONTA++;
+        this.cliente=cliente;
+
+
     }
 
     @Override
     public String toString() {
-        return "Conta:" +
-                "\nagencia:" + agencia +
-                "\nnumero: " + numero +
-                "\nsaldo: " + saldo;
+        return "Conta{" +
+                "agencia=" + agencia +
+                ", numero=" + numero +
+                ", saldo=" + saldo +
+                "\n" + cliente +
+                '}';
     }
 
     public void sacar(double valorSaque){
