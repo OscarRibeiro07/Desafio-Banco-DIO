@@ -4,7 +4,7 @@ public class Conta extends Banco{
 
 
     // gera de forma sequencial a implementação do numero
-    private static  int NUMERODACONTA = 003;
+    private static  int NUMERODACONTA = 3;
 
     // gera de forma sequencial a implementação da agencia
     private static  int AGENCIA = 4591 ;
@@ -13,32 +13,32 @@ public class Conta extends Banco{
     protected double saldo;
     protected Cliente cliente;
 
+
     // define que para utilizar uma conta tem que ter o cliente vinculado
     public Conta(Cliente cliente) {
+
         this.agencia = AGENCIA++;
         this.numero = NUMERODACONTA++;
         this.cliente=cliente;
-
 
     }
 
     @Override
     public String toString() {
-        return "Conta{" +
-                "agencia=" + agencia +
-                ", numero=" + numero +
-                ", saldo=" + saldo +
-                "\n" + cliente +
-                '}';
+        return STR."""
+                Conta{agencia=\{agencia}, numero=\{numero}, saldo=\{saldo}
+                \{cliente}}""";
     }
 
     public void sacar(double valorSaque){
         if (saldo>=valorSaque){
             this.saldo-=valorSaque;
         }else {
-            System.out.println("O seu saldo é: " + saldo
-                    + "\nvalor do saque é: " + valorSaque +"\n" + "Então não é possivel realizar o saque");
-        }
+            System.out.println(STR."""
+                    O seu saldo é: \{saldo}
+                    valor do saque é: \{valorSaque}
+                    Então não é possivel realizar o saque""");
+                            }
     }
 
     public  void depositar(double valor){
